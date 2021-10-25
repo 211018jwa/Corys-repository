@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- the purpose of the head tag is provide metadata for an HTML page-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculator App</title> <!-- the title tag is what shows up when you see the text for a particular "tab"-->
+</head>
+
+<body>
+	<h1>Addition</h1>
+	<form action="http://localhost:8080/add" method="POST" target="result">
+		<input type="number" name="number1" placeholder="0">
+		<input type="number" name="number2" placeholder="0">
+		<button type="submit">Add Numbers</button>
+
+	</form>
+
+
+	<h1>Subtraction</h1>
+	<form action="http://localhost:8080/subtract" method="POST" target="result">
+		<input type="number" name="number1" placeholder="0">
+		<input type="number" name="number2" placeholder="0">
+		<button type="submit">Subtract Numbers</button>
+
+	</form>
+
+	<h1>Multiplication</h1>
+	<form action="http://localhost:8080/multiply" method="POST" target="multResult">
+		<!-- The purpose of a form is to submit data somewhere -->
+		<!-- We have 2 different attributes to be concerned with 
+            1. action attribute: the location of where we want to send the data to
+            2. method attribute: the HTTP method that we want to use (GET, POST, PATCH, PUT, DELETE)
+        -->
+
+		<!-- Next define some input elements that will contain the information that we want to send -->
+		<input type="number" step="0.01" name="number1" placeholder="0">
+		<input type="number" step="0.01" name="number2" placeholder="0">
+		<button type="submit">Multiply Numbers</button>
+	</form>
+
+	<h1>Division</h1>
+		<form action="http://localhost:8080/divide" method="POST" target="divResult">
+			<input type="number" step="0.01" name="number1" placeholder="0">
+			<input type="number" step="0.01" name="number2" placeholder="0">
+			<button type="submit">Divide Numbers</button>
+		</form>
+
+		<iframe name="divResult" frameborder="0">
+		</iframe>
+		
+	<iframe name="result" frameborder="0">
+		<iframe name="multResult" frameborder="0">
+		</iframe>
+</body>
+
+</html>
