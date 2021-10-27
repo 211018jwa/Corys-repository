@@ -11,8 +11,7 @@ public class Main {
 		
 		WebDriver driver = new ChromeDriver();         
 		driver.get("http://localhost:8080/");
-		
-		Thread.sleep(10000);                           
+		                          
 		
 		WebElement addInput1 = driver.findElement(By.id("addnumber1"));         
 		WebElement addInput2 = driver.findElement(By.id("addnumber2"));         
@@ -23,13 +22,63 @@ public class Main {
 		addInput2.sendKeys("15.3");         
 		addButton.click();                   
 		
-		driver.switchTo().frame("result");                   
+		driver.switchTo().frame("addresult");                   
 		
 		WebElement addOutput = driver.findElement(By.tagName("pre")); 
 		System.out.println("The result of adding 10.5 and 15.3 is " + addOutput.getText());
 		
 		driver.switchTo().defaultContent();
+		//Subtraction
+		WebElement subInput1 = driver.findElement(By.id("subnumber1"));         
+		WebElement subInput2 = driver.findElement(By.id("subnumber2"));         
+		WebElement addsubButton = driver.findElement(By.id("subButton"));                  
 		
+		
+		subInput1.sendKeys("10.5");         
+		subInput2.sendKeys("15.3");         
+		addsubButton.click();                   
+		
+		driver.switchTo().frame("subresult");                   
+		
+		WebElement subOutput = driver.findElement(By.tagName("pre")); 
+		System.out.println("The result of adding 10.5 and 15.3 is " + subOutput.getText());
+		
+		driver.switchTo().defaultContent();
+		//Multiplication
+		WebElement multInput1 = driver.findElement(By.id("multnumber1"));         
+		WebElement multInput2 = driver.findElement(By.id("multnumber2"));         
+		WebElement addmultButton = driver.findElement(By.id("multButton"));                  
+		
+		
+		multInput1.sendKeys("10.5");         
+		multInput2.sendKeys("15.3");         
+		addmultButton.click();                   
+		
+		driver.switchTo().frame("multResult");                   
+		
+		WebElement multOutput = driver.findElement(By.tagName("pre")); 
+		System.out.println("The result of adding 10.5 and 15.3 is " + multOutput.getText());
+		
+		driver.switchTo().defaultContent();
+		//Division
+		WebElement divInput1 = driver.findElement(By.id("divnumber1"));         
+		WebElement divInput2 = driver.findElement(By.id("divnumber2"));         
+		WebElement divButton = driver.findElement(By.id("divButton"));                  
+		
+		
+		divInput1.sendKeys("10.5");         
+		divInput2.sendKeys("15.3");         
+		divButton.click();                   
+		
+		driver.switchTo().frame("divResult");                   
+		
+		WebElement divOutput = driver.findElement(By.tagName("pre")); 
+		System.out.println("The result of adding 10.5 and 15.3 is " + divOutput.getText());
+		
+		driver.switchTo().defaultContent();
+
+
+		Thread.sleep(5000);
 		
 		driver.quit();
 	}

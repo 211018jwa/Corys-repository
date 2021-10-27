@@ -9,7 +9,7 @@ public String doAddition(String number1String, String number2String) {
 		
 		double sum = number1 + number2;
 		
-		String result = "Result" + sum; // Convert from double representation of a number to a String representation 
+		String result = "" + sum; // Convert from double representation of a number to a String representation 
 		
 		return result;
 	}
