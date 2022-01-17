@@ -2,57 +2,119 @@ package com.revature.service;
 
 public class ArithmeticService {
 
-public String doAddition(String number1String, String number2String) {
+	// Purpose of this method is to check the inputs and whether we have any blank
+	// inputs
+	// We want to return an int corresponding to which inputs are missing
+	// 0: FINE, 1: LEFT input is missing, 2: RIGHT input is missing, 3: BOTH inputs
+	// are missing
+	public int checkInputs(String input1, String input2) {
+		if (input1.trim().equals("") && input2.trim().equals("")) {
+			return 3;
+		}
+
+		// To reach this point, we already know one of the inputs is NOT blank
+
+		// If this block of code executes, then it MUST be only the left side that is
+		// blank
+		if (input1.trim().equals("")) {
+			return 1;
+		}
+
+		// If this block of code executes, then it MUST be only the right side that is
+		// blank
+		if (input2.trim().equals("")) {
+			return 2;
+		}
+
+		// Neither are blank
+		return 0;
+
+	}
+
+	public String doOperation(String input1, String input2, char operator) {
+		int condition = checkInputs(input1, input2);
 		
+		switch (condition) {
+			
+		case 1:
+			return "Left input is missing";
+		
+		case 2: 
+			return "Right input is missing";
+			
+		case 3: 
+			return "Both inputs are missing";
+			
+	}
+		
+		// If you make it past the swtich statements, (for example you get a value of 0), then you are good to go
+		switch(operator) {
+			
+		case '+':
+				return doAddition(input1, input2);
+		case '-':
+				return doSubtraction(input1, input2);
+		case '*':
+				return doMultiplication(input1, input2);
+		case '/': 
+				return doDivison(input1, input2);
+				
+		}
+		
+		return "Something went wrong because we somehow didnt execute one of those return statements above";
+		
+	}	
+
+	public String doAddition(String number1String, String number2String) {
+
 		double number1 = Double.parseDouble(number1String);
 		double number2 = Double.parseDouble(number2String);
-		
+
 		double sum = number1 + number2;
-		
-		String result = "" + sum; // Convert from double representation of a number to a String representation 
-		
+
+		String result = "" + sum; // Convert from double representation of a number to a String representation
+
 		return result;
 	}
-public String doSubrtraction(String number1String, String number2String) {
-	
-	double number1 = Double.parseDouble(number1String);
-	double number2 = Double.parseDouble(number2String);
-	
-	double subtraction = number1 - number2;
-	
-	String result = "" + subtraction; // Convert from double representation of a number to a String representation 
-	
-	return result;
-	
-	}
 
-public String doMultiplication(String number1String, String number2String) {
-	
-	double number1 = Double.parseDouble(number1String);
-	double number2 = Double.parseDouble(number2String);
-	
-	double multiplication = number1 * number2;
-	
-	String result = "" + multiplication; // Convert from double representation of a number to a String representation 
-	
-	return result;
-	
-}
-	
-public String doDivide(String number1String, String number2String) {
-		
+	public String doSubtraction(String number1String, String number2String) {
+
 		double number1 = Double.parseDouble(number1String);
 		double number2 = Double.parseDouble(number2String);
-		
-		double divide = number1 / number2;
-		
-		String result = "" + divide; // Convert from double representation of a number to a String representation 
-		
+
+		double subtraction = number1 - number2;
+
+		String result = "" + subtraction; // Convert from double representation of a number to a String representation
+
 		return result;
-		
+
+	}
+
+	public String doMultiplication(String number1String, String number2String) {
+
+		double number1 = Double.parseDouble(number1String);
+		double number2 = Double.parseDouble(number2String);
+
+		double multiplication = number1 * number2;
+
+		String result = "" + multiplication; // Convert from double representation of a number to a String
+												// representation
+
+		return result;
+
+	}
+
+	public String doDivison(String number1String, String number2String) {
+
+		double number1 = Double.parseDouble(number1String);
+		double number2 = Double.parseDouble(number2String);
+
+		double divide = number1 / number2;
+
+		String result = "" + divide; // Convert from double representation of a number to a String representation
+
+		return result;
+
 	}
 
 }
-		
-		
-	
